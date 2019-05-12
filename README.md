@@ -2,4 +2,4 @@
 some description
 
 ## more changes
-:thumbs-up:
+:thumbsup:
