@@ -1,5 +1,5 @@
 # learn-me
-some description
+All about learning Data Science!
 
 ## more changes
 :thumbsup:
