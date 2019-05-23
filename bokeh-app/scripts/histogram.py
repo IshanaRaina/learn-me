@@ -12,7 +12,7 @@ def histogram_tab(flights):
     def make_dataset(carrier_list):
         reporting_df = pd.DataFrame(columns=['count', 'left', 'right', 'f_count', 'f_interval', 'name', 'color'])
 
-        #For each of the 5 carriers, perform the following processing steps
+        #For each of the carriers, perform the following processing steps
         for i, carrier_name in enumerate(carrier_list):
             #work on data subsets pertaining to each carrier
             subset_df = flights[flights['name']==carrier_name]
@@ -49,6 +49,7 @@ def histogram_tab(flights):
         new_src = make_dataset(updated_carriers) #function returns ColumnDataSource(updated df)
         src.data.update(new_src.data) #we don't need to call make_plot again, we just need to update the data
 
+    ####################Initialization####################
     #Checkbox Group initialization and manipulation
     available_carriers = list(set(flights['name']))
     available_carriers.sort()
