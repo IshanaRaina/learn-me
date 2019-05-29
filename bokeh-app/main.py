@@ -14,5 +14,5 @@ map_data = pd.read_csv(join(dirname(__file__), 'data', 'flights_map.csv'), heade
 tab1=histogram_tab(flights)
 tab2=map_tab(map_data, states)
 
-tabs = Tabs(tabs=[tab1, tab2]) #add tab2
+tabs = Tabs(tabs=[tab1, tab2])
 curdoc().add_root(tabs)
