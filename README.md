@@ -1,5 +1,4 @@
-# Learning Data Science and Github too! 
+# Learning Data Science
 All about learning Data Science!
 
-## more changes
 :thumbsup:
