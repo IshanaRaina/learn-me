@@ -1,5 +1,3 @@
-<div style="text-align: justify">
-
 # learning-python
 
 I started teaching myself Python in December 2018. And observed the :muscle: of the language through its libraries while pursuing the following projects:
@@ -36,5 +34,3 @@ This project involved:
 - uploading the Titanic :ship: dataset to a MongoDB collection
 - querying the data using the PyMongo library
 - and visualizing it
-
-</div>
