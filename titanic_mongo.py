@@ -30,7 +30,7 @@ print("\n--------------Distinct Values----------------")
 print(db.titanic.distinct("point_of_embarkation"))
 print(db.titanic.distinct("class", {"fare_paid":0}))
 
-#Projections
+# Projections
 print("\n----------------Projections------------------")
 
 # Counting documents is straightforward but on using the find() method, a cursor is returned.
@@ -58,7 +58,7 @@ for doc in db.titanic.find({"parents_children":{"$gte":5}}, ["name", "age"]):
 # Python's use in dealing with iterables like cursors and MongoDB's projection can be used to
 # slim down the documents returned. Togther, they make for powerful querying!
 
-#Sorting
+# Sorting
 print("\n----------------Sorting------------------")
 for doc in db.titanic.find({"age":{"$lt":18}}, sort = [("class", 1)]):
     print(doc["class"], doc["survived"])
@@ -89,7 +89,7 @@ cursor = db.titanic.aggregate([ \
 for doc in cursor:
     print(doc["class"], doc["gender"], doc["survived"])
 
-#Importing data into a dataframe
+# Importing data into a dataframe
 print("\n------------Importing into DataFrame---------------")
 
 import pandas as pd
@@ -104,7 +104,7 @@ df = df.replace("",np.nan)
 print(df.info())
 print(df.head())
 
-#Data visualization
+# Data visualization
 print("\n-------------Data visualization--------------")
 
 import seaborn as sns
