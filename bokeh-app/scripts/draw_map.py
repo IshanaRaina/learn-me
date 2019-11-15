@@ -10,10 +10,10 @@ def map_tab(map_data, states):
     
     #####################Preparing the dataset####################
     def make_dataset(carrier_list):
-        #Dictionary mapping carriers to colors
+        # Dictionary mapping carriers to colors
         color_dict = {carrier: color for carrier, color in zip(available_carriers, airline_colors)}
         
-        #Lists of data for plotting --> dict --> ColumnDataSource
+        # Lists of data for plotting --> dict --> ColumnDataSource
         flight_x = []
         flight_y = []
         colors = []
@@ -27,10 +27,10 @@ def map_tab(map_data, states):
         dests = []
         mean_distances = []
 
-        #For each of the carriers, perform the following processing steps
+        # For each of the carriers, perform the following processing steps
         for carrier in carrier_list:
             subset_df = map_data[map_data['carrier']['Unnamed: 3_level_1'] == carrier]
-            #Iterate through each flight (origin to destination) of the carrier
+            # Iterate through each flight (origin to destination) of the carrier
             for _, row in subset_df.iterrows():
                 colors.append(color_dict[carrier])
                 carriers.append(carrier)
@@ -67,20 +67,20 @@ def map_tab(map_data, states):
         plot.yaxis.visible = False
         plot.grid.visible = False
 
-        #States are drawn as patches
+        # States are drawn as patches
         patches_glyph = plot.patches(xs, ys, fill_alpha=0.2, fill_color='lightgray', line_width=2, line_alpha=0.8)
 
-        #Flights are drawn as lines
+        # Flights are drawn as lines
         lines_glyph = plot.multi_line('flight_x', 'flight_y', color='color', line_width=2, line_alpha=0.8,\
             hover_line_alpha=1.0, hover_line_color='color', legend='carrier', source=src)
 
-        #Origins (all in NYC) are drawn as squares
+        # Origins (all in NYC) are drawn as squares
         squares_glyph = plot.square('origin_x_loc', 'origin_y_loc', color='color', size=10, source=src)
 
         #Destinations are drawn as circles
         circles_glyph = plot.circle('dest_x_loc', 'dest_y_loc', color='color', size=10, source=src)
 
-        #Add glyphs to plot using the renderers attribute
+        # Add glyphs to plot using the renderers attribute
         plot.renderers.append(patches_glyph)
         plot.renderers.append(lines_glyph)
         plot.renderers.append(squares_glyph)
@@ -92,7 +92,7 @@ def map_tab(map_data, states):
         hover_circle = HoverTool(tooltips = [('Origin', '@origin'), ('Destination', '@dest'), ('Average Distance (miles)', '@mean_distance')], \
             renderers = [circles_glyph])
 
-        #Postiion the legend so it doesn't overlap the plot
+        # Postiion the legend so it doesn't overlap the plot
         plot.legend.location = (10,50) #Bottom left?
 
         plot.add_tools(hover_line)
@@ -102,11 +102,11 @@ def map_tab(map_data, states):
     #####################Dynamic updation of data####################
     def update(attr, old, new):
         updated_carriers = [carrier_selection.labels[i] for i in carrier_selection.active]
-        new_src = make_dataset(updated_carriers) #function returns ColumnDataSource(updated df)
-        src.data.update(new_src.data) #we don't need to call make_plot again, we just need to update the data
+        new_src = make_dataset(updated_carriers) # function returns ColumnDataSource(updated df)
+        src.data.update(new_src.data) # we don't need to call make_plot again, we just need to update the data
 
     ####################Initialization####################
-    available_carriers = list(set(map_data['carrier']['Unnamed: 3_level_1'])) #simply due to first 2 rows being a header
+    available_carriers = list(set(map_data['carrier']['Unnamed: 3_level_1'])) # simply due to first 2 rows being a header
     available_carriers.sort()
 
     airline_colors = Category20_16
@@ -123,14 +123,14 @@ def map_tab(map_data, states):
     if 'HI' in states: del states['HI']
     if 'AK' in states: del states['AK']
 
-    #Put longitudes and latitudes in lists
+    # Put longitudes and latitudes in lists
     xs = [states[state]['lons'] for state in states]
     ys = [states[state]['lats']  for state in states]
     
     carrier_selection = CheckboxGroup(labels=available_carriers, active=[0,1])
     carrier_selection.on_change('active', update)
 
-    #Initial data source to display
+    # Initial data source to display
     initial_carriers = [carrier_selection.labels[i] for i in carrier_selection.active]
     src = make_dataset(initial_carriers)
     plot = make_plot(src, xs, ys)
