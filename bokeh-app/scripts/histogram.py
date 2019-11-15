@@ -14,7 +14,7 @@ def histogram_tab(flights):
 
         # For each of the carriers, perform the following processing steps
         for i, carrier_name in enumerate(carrier_list):
-            #work on data subsets pertaining to each carrier
+            # Work on data subsets pertaining to each carrier
             subset_df = flights[flights['name']==carrier_name]
             # Using np.histogram to determine data and edges
             arr_hist, edges = np.histogram(subset_df['arr_delay'], bins=int(240/5), range = [-120, +120])
