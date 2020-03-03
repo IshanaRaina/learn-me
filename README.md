@@ -1,4 +1,6 @@
-# Learning Python
+<p>
+<img src="https://i.imgur.com/njN8WjT.png" width="600" height="300">
+</p>
 
 I started teaching myself Python in December 2018. And observed the :muscle: of the language through its libraries while pursuing the following projects:
 
