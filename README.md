@@ -33,7 +33,7 @@ I came across Will Koehrsen's Bokeh project and recreated a part of it in my rep
 ### :file_folder: titanic_mongo
 
 This project involved:
-- uploading the Titanic :ship: dataset to a MongoDB collection
+- storing the Titanic :ship: dataset as a MongoDB collection
 - querying the data using the PyMongo library
 - and visualizing it
 
