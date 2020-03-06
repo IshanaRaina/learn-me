@@ -26,7 +26,7 @@ Although creating the graphs in Seaborn was easy, figuring out how to correctly 
 
 Credits: https://github.com/WillKoehrsen/Bokeh-Python-Visualization
 
-I wanted to take my visualization knowledge to the next level and read about Bokeh, which would allow me to render my graphs in a web browser. 
+I wanted to take my visualization knowledge to the next level when I came across Bokeh, which would allow me to render my graphs in a web browser. 
 
 I came across Will Koehrsen's Bokeh project and recreated a part of it in my repo. It turned out to be an extremely useful and fun project where I visualized :airplane: data on a map of the :us: rendered in the web!
 
