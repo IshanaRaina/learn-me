@@ -38,3 +38,6 @@ This project involved:
 - and visualizing it
 
 Another great opportunity that presented itself through this project was being asked to collaborate on creating MongoDB coursework. Head over to [this file](https://github.com/mattdavis0351/mongodb-labs/blob/master/exercises/04_mongo-with-python.md) and you'll see the progression onto a more fleshed out offering with detailed explanations for the code being used! 
+
+
+
